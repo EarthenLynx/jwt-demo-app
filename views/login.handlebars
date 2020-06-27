@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img height="15px" src="https://jwt.io/img/pic_logo.svg" alt="logo">
+        JWT Demo
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/login">Login</a>
+            <a class="nav-item nav-link" href="/signup">Sign Up</a>
+            <a class="nav-item nav-link" href="/">Dashboard</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-lg-6 col-sm-10">
+            <div id="alert" class="alert alert-success mt-4" role="alert">
+                <span id="alert-text"></span>
+                <button type="button" class="close">
+                    <span id="alert-close" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h1 class="h3">Get a token</h1>
+                </div>
+                <div class="card-body">
+                    <input id="login-user" type="text" placeholder="Username" class="form-control px-4 mb-4">
+                    <input id="login-password" type="password" placeholder="Password" class="form-control px-4 mb-4">
+                    <button id="login-button" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <a style="color: #fff;" href="/">
+                        <button id="signup-move" class="btn btn-primary float-right">
+                            <i class="fas fa-tachometer-alt"></i> Move to Dashboard
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+</div>

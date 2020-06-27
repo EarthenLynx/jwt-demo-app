@@ -1,0 +1,28 @@
+{
+  "name": "json-http-training",
+  "version": "1.0.0",
+  "description": "Just another http - request folder",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^1.0.0",
+    "mongodb": "^3.5.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon --ignore 'store/users.json' index.js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "store/*"
+    ]
+  },
+  "author": "",
+  "license": "MIT"
+}
