@@ -14,6 +14,10 @@ const VERIFY_USER = (req, res, callback) => {
 
   jwt.verify(token, secret, (err, payload) => {
     if (!err) callback(payload);
+    if (err) {
+      console.log(err.message);
+      res.redirect("/login");
+    }
   });
 };
 
