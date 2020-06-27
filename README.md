@@ -1,4 +1,4 @@
-(https://jwt.io/img/pic_logo.svg)[https://jwt.io]
+![https://jwt.io/img/pic_logo.svg](https://jwt.io)
 # Json Webtokens Demo file
 
 ## Clone the repos
