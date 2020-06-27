@@ -9,6 +9,7 @@ HANDLE_SIGNUP = (req, res) => {
 
   const user = data.user;
   const password = data.password;
+  const role = data.role;
 
   const auth = user + ":" + password;
   const auth64 = Buffer.from(auth, "utf-8").toString("hex");
@@ -19,7 +20,7 @@ HANDLE_SIGNUP = (req, res) => {
   if (exists) {
     res.status(500).send({ status: "error", msg: "User already exists" });
   } else {
-    db.get("users").push({ num: num, auth: auth64 }).write();
+    db.get("users").push({ num: num, auth: auth64, role: role }).write();
     res.status(200).send({ status: "success", msg: "User has been saved" });
   }
 };

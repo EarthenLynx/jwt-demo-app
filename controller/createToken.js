@@ -22,15 +22,11 @@ CREATE_TOKEN = (req, res) => {
   console.log(exists);
 
   if (exists) {
-    const auth = Buffer.from(exists.auth, "hex").toString("utf-8").split(":");
-    const user = auth[0];
-    const password = auth[1];
-
     const payload = { user };
 
     const options = {
       expiresIn: "1h",
-      audience: "Suppliers",
+      audience: exists.role,
       issuer: "My API",
     };
 
