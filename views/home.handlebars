@@ -26,9 +26,14 @@
                     <h1 class="h3">Hello {{name}}!</h1>
                 </div>
                 <div class="card-body">
-                    <p>The requested token is meant to be for {{audBy}}</p>
+                    <p>This page can only be shown if the jwt authorizes you to.</p>
+                    <p>The requested token is meant to be for the {{audBy}} role.</p>
                     <p>It will expire at {{expire}}</p>
-                    <p>After it has expired, you will need to request a new one at the <a href="/">login page</a>.</p>
+                    <p>After it has expired, you will need to request a <a href="/">new one</a>.</p>
+                    <hr>
+                    <p class="float-left mt-1">You can also reset it manually here:</p>
+                    <button id="home-delete-jwt-cookie" class="btn btn-outline-danger float-right">Delete JWT
+                        cookie</button>
                 </div>
             </div>
         </div>
