@@ -4,61 +4,6 @@
       "num": 2,
       "auth": "757365723a75736572",
       "role": "User"
-    },
-    {
-      "num": 3,
-      "auth": "61646d696e3a61646d696e",
-      "role": "Admin"
-    },
-    {
-      "num": 4,
-      "auth": "75736572323a75736572",
-      "role": "User"
-    },
-    {
-      "num": 5,
-      "auth": "746f62693a746f6269",
-      "role": "User"
-    },
-    {
-      "num": 6,
-      "auth": "613a",
-      "role": "User"
-    },
-    {
-      "num": 7,
-      "auth": "61623a",
-      "role": "User"
-    },
-    {
-      "num": 8,
-      "auth": "6162633a",
-      "role": "User"
-    },
-    {
-      "num": 9,
-      "auth": "74653a",
-      "role": "User"
-    },
-    {
-      "num": 10,
-      "auth": "71776f646e3a71776e64",
-      "role": "User"
-    },
-    {
-      "num": 11,
-      "auth": "71776b6c713a716c77666e",
-      "role": "User"
-    },
-    {
-      "num": 12,
-      "auth": "71776b6c71737773643a716c77666e",
-      "role": "User"
-    },
-    {
-      "num": 13,
-      "auth": "71776b6c7173777364733a716c77666e",
-      "role": "User"
     }
   ]
 }
