@@ -39,13 +39,7 @@ CREATE_TOKEN = (req, res) => {
   } else {
     res.status(401).send({
       status: "error",
-      msg:
-        "User - PW combination not found. Sign up first. " +
-        auth +
-        user +
-        password +
-        auth64 +
-        exists,
+      msg: "User - PW combination not found. Sign up first. ",
     });
   }
 };
