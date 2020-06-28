@@ -31,11 +31,7 @@ router.get("/", (req, res) => {
 
         expire() {
           let expiresIn = payload.exp;
-          console.log(expiresIn);
-
           let date = new Date(expiresIn * 1000);
-          console.log(date);
-
           return date;
         },
       },

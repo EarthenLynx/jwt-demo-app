@@ -10,22 +10,19 @@ const db = low(adapter);
 
 CREATE_TOKEN = (req, res) => {
   const data = req.body;
-  console.log(data);
 
-  const user = data.user;
-  const password = data.password;
+  const { user, password } = data;
 
   const auth = user + ":" + password;
   const auth64 = Buffer.from(auth, "utf-8").toString("hex");
 
   const exists = db.get("users").find({ auth: auth64 }).value();
-  console.log(exists);
 
   if (exists) {
     const payload = { user };
 
     const options = {
-      expiresIn: "1h",
+      expiresIn: "5m",
       audience: exists.role,
       issuer: "My API",
     };
@@ -36,9 +33,14 @@ CREATE_TOKEN = (req, res) => {
 
     const token = jwt.sign(payload, secret, options);
 
-    res.status(200).send({ status: "success", msg: "User found", token });
+    res
+      .status(200)
+      .send({ status: "success", msg: "You've been authenticated", token });
   } else {
-    res.status(401).send({ status: "error", msg: "Not authorized" });
+    res.status(401).send({
+      status: "error",
+      msg: "User - PW combination not found. Sign up first.",
+    });
   }
 };
 

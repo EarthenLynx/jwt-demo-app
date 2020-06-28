@@ -23,6 +23,10 @@ app.use(express.static("public"));
 app.use("/", viewRoute);
 app.use("/api", mainRoute);
 
+app.get("/*", (req, res) => {
+  res.render("notfound");
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log("Listening on http://127.0.0.1:" + port));

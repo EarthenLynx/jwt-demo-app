@@ -34,7 +34,10 @@ $(document).ready(function () {
       .then((data) => {
         $("#alert").show();
         $("#alert-text").html(data.msg);
-        if (data.token) document.cookie = "htaccess=" + data.token;
+        if (data.token) {
+          document.cookie = "htaccess=" + data.token;
+          window.location = "/";
+        }
       });
   });
 
@@ -44,4 +47,5 @@ $(document).ready(function () {
   });
 
   $("#alert-close").click(() => $("#alert").hide());
+  $("#toast-show").click(() => $("#toast").toast("show"));
 });
