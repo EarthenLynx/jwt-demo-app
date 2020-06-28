@@ -16,6 +16,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon --ignore 'store/users.json' index.js"
   },
   "nodemonConfig": {
