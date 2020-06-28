@@ -15,10 +15,8 @@ CREATE_TOKEN = (req, res) => {
 
   const auth = user + ":" + password;
   const auth64 = Buffer.from(auth, "utf-8").toString("hex");
-  console.log(auth64);
 
   const exists = db.get("users").find({ auth: auth64 }).value();
-  console.log(exists);
 
   if (exists) {
     const payload = { user };
@@ -41,7 +39,12 @@ CREATE_TOKEN = (req, res) => {
   } else {
     res.status(401).send({
       status: "error",
-      msg: "User - PW combination not found. Sign up first.",
+      msg:
+        "User - PW combination not found. Sign up first. " +
+        auth +
+        user +
+        password +
+        exists,
     });
   }
 };
