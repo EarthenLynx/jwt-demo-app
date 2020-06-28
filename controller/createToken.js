@@ -44,6 +44,7 @@ CREATE_TOKEN = (req, res) => {
         auth +
         user +
         password +
+        auth64 +
         exists,
     });
   }
