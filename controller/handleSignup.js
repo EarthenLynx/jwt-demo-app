@@ -19,7 +19,9 @@ HANDLE_SIGNUP = (req, res) => {
   const exists = db.get("users").find({ auth: auth64 }).value();
 
   if (exists) {
-    res.status(500).send({ status: "error", msg: "User already exists" });
+    res
+      .status(500)
+      .send({ status: "error", msg: "User already exists" + exists });
   } else {
     db.get("users").push({ num: num, auth: auth64, role: role }).write();
     res.status(200).send({
