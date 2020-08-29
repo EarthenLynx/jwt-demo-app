@@ -4,18 +4,13 @@
  * contain all the information necessary to access
  * certain ressources. A modern example of such tokens
  * are JSON web tokens.
- *
- * Author's note: I just recently discovered this way
- * of authenticating against a server and will need to
- * review it myself to see if it's viable. See reference
- * here: https://jwt.io/
  */
 
 //  Route: /api/
 
 const express = require("express");
 const CREATE_TOKEN = require("../controller/createToken");
-const HANDLE_SIGNUP = require("../controller/handleSignup");
+// const HANDLE_SIGNUP = require("../controller/handleSignup");
 
 // Setup the router
 const router = express.Router();
@@ -25,8 +20,9 @@ router.post(/*/api*/ "/authenticate", (req, res) => {
   CREATE_TOKEN(req, res);
 });
 
-router.post(/*/api*/ "/signup", (req, res) => {
-  HANDLE_SIGNUP(req, res);
-});
+// Deactivated as not functional in Heroku
+// router.post(/*/api*/ "/signup", (req, res) => {
+//   HANDLE_SIGNUP(req, res);
+// });
 
 module.exports = router;

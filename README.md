@@ -2,7 +2,7 @@
 
 Reference: https://jwt.io
 
-# Json Webtokens Demo file
+# Json Webtokens Demo Application
 
 Demo: https://jwt-auth-demo.herokuapp.com/login
 

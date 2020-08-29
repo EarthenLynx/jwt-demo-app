@@ -4,11 +4,6 @@
  * contain all the information necessary to access
  * certain ressources. A modern example of such tokens
  * are JSON web tokens.
- *
- * Author's note: I just recently discovered this way
- * of authenticating against a server and will need to
- * review it myself to see if it's viable. See reference
- * here: https://jwt.io/
  */
 
 const express = require("express");
@@ -44,8 +39,8 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/signup", (req, res) => {
-  res.render("signup");
-});
+// router.get("/signup", (req, res) => {
+//   res.render("signup");
+// });
 
 module.exports = router;
