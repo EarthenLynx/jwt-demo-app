@@ -4,7 +4,7 @@ Reference: https://jwt.io
 
 # Json Webtokens Demo Application
 
-Demo: https://jwt-auth-demo.herokuapp.com/login
+Demo: https://jwt-auth-demo.herokuapp.com/
 
 ## Clone the repos
 
@@ -20,9 +20,8 @@ $ npm run dev
 
 ## Open your browser at 127.0.0.1:3000
 
-- This demo uses lowdb for data storage. 
-- The login credentials are base64 encoded, saved, and decoded when needed to fetch the username. 
-- You can find the database under store/users.json.
-- The token is automatically saved in the client's localstore as a cookie and can be sent back and forth for verification
-- The key to verify the jwt itself is stored under store/signature.key
+- This demo uses mongodb atlas for data storage. 
+- For a local environment, you'll need to use the [Node dotenv package](https://www.npmjs.com/package/dotenv) and use an .env file to store: 
+  - DB_URL=[Your mongodb URL]
+  - SECRET=[The signature to verify your JWT with]
 - See https://jwt.io for more information on the topic
