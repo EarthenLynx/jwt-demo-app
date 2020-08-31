@@ -2,10 +2,15 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const cookieParser = require("cookie-parser");
+const mongoose = require("mongoose");
+require('dotenv').config()
 
 // Import the routes
 const viewRoute = require("./routes/view");
 const mainRoute = require("./routes/main");
+
+// Setup the DB connection
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
 
 // Set the view engine
 app.engine("handlebars", exphbs());

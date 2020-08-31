@@ -13,19 +13,19 @@ const VERIFY_USER = require("../middleware/verifyUser");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  VERIFY_USER(req, res, (payload) => {
+  VERIFY_USER(req, res, (sessiondata) => {
     res.render("home", {
       helpers: {
         name() {
-          return payload.user;
+          return sessiondata.userName;
         },
 
         audBy() {
-          return payload.aud;
+          return sessiondata.aud;
         },
 
         expire() {
-          let expiresIn = payload.exp;
+          let expiresIn = sessiondata.exp;
           let date = new Date(expiresIn * 1000);
           return date;
         },
@@ -39,8 +39,8 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// router.get("/signup", (req, res) => {
-//   res.render("signup");
-// });
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
 
 module.exports = router;

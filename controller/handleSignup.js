@@ -1,34 +1,47 @@
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
+const User = require("../models/user");
+const randomString = require("crypto-random-string");
+const bcrypt = require("bcrypt");
 
-const adapter = new FileSync("store/users.json");
-const db = low(adapter);
-
-HANDLE_SIGNUP = (req, res) => {
+const HANDLE_SIGNUP = (req, res) => {
+  // Extract the data from the request's body
   const data = req.body;
 
-  const { user, password, role } = data;
+  // Create and extract the necessary model data
+  const userId = randomString({ length: 40, type: "url-safe" });
+  const { userName, userPlaintextPassword, userEmail, userRole } = data;
 
-  const auth = user + ":" + password;
-  const auth64 = Buffer.from(auth, "utf-8").toString("hex");
-
-  const num = db.get("users").size().value() + 1;
-  if (num > 25) {
-    db.get("users").shift().write();
+  // If either of these are missing, send back an error message
+  if(!userName || !userPlaintextPassword || !userEmail || !userRole) {
+    res.status(400).send({status: "error", msg: "Please provide all mandatory information"});
+    return;
   }
-  const exists = db.get("users").find({ auth: auth64 }).value();
 
-  if (exists) {
-    res
-      .status(500)
-      .send({ status: "error", msg: "User already exists" + exists });
-  } else {
-    db.get("users").push({ num: num, auth: auth64, role: role }).write();
-    res.status(200).send({
-      status: "success",
-      msg: "User has been created. You can now login",
-    });
-  }
+  // Check if user's email adressalready signed up
+  User.findOne({ userEmail }, (err, docs) => {
+    // If user exists, send back an error message
+    if (docs) {
+      res.status(400).send({ status: "error", msg: "This email has already been registered, please use another one" });
+      
+      // If user doesn't exist, create a new one and save it to the DB
+    } else {
+
+      // Encrypt the user's password
+      bcrypt.hash(userPlaintextPassword, 10, (err, userPassword) => {
+        if (err) throw err;
+
+        // Create new user model and send back a message to the client.
+        let user = new User({ userId, userName, userPassword, userEmail, userRole })
+        user.save(err => {
+          if (err) {
+            res.status(500).send({ status: "error", msg: "User could not be created. Please enter all mandatory fields." });
+          } else {
+            res.status(200).send({ status: "success", msg: "User successfully created" });
+          }
+        })
+      });
+    }
+  })
+
 };
 
 module.exports = HANDLE_SIGNUP;

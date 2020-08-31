@@ -10,7 +10,7 @@
 
 const express = require("express");
 const CREATE_TOKEN = require("../controller/createToken");
-// const HANDLE_SIGNUP = require("../controller/handleSignup");
+const HANDLE_SIGNUP = require("../controller/handleSignup");
 
 // Setup the router
 const router = express.Router();
@@ -20,9 +20,8 @@ router.post(/*/api*/ "/authenticate", (req, res) => {
   CREATE_TOKEN(req, res);
 });
 
-// Deactivated as not functional in Heroku
-// router.post(/*/api*/ "/signup", (req, res) => {
-//   HANDLE_SIGNUP(req, res);
-// });
+router.post(/*/api*/ "/signup", (req, res) => {
+  HANDLE_SIGNUP(req, res);
+});
 
 module.exports = router;

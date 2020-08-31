@@ -2,11 +2,12 @@ $(document).ready(function () {
   $("#alert").hide();
 
   $("#signup-button").click(() => {
-    const user = $("#signup-user").val();
-    const password = $("#signup-password").val();
-    const role = $("#signup-role").val();
+    const userName = $("#signup-user").val();
+    const userPlaintextPassword = $("#signup-password").val();
+    const userEmail = $("#signup-email").val();
+    const userRole = $("#signup-role").val();
 
-    const payload = { user, password, role };
+    const payload = { userName, userPlaintextPassword, userEmail, userRole };
     fetch("/api/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -20,10 +21,10 @@ $(document).ready(function () {
   });
 
   $("#login-button").click(() => {
-    const user = $("#login-user").val();
-    const password = $("#login-password").val();
+    const userEmail = $("#login-user").val();
+    const userPlaintextPassword = $("#login-password").val();
 
-    const payload = { user, password };
+    const payload = { userEmail, userPlaintextPassword };
 
     fetch("/api/authenticate", {
       method: "POST",
@@ -36,7 +37,10 @@ $(document).ready(function () {
         $("#alert-text").html(data.msg);
         if (data.token) {
           document.cookie = "htaccess=" + data.token;
-          window.location = "/";
+          setTimeout(() => {
+            // Just for the effect
+            window.location = "/";
+          }, 2000)
         }
       });
   });

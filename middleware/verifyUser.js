@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 const jwt = require("jsonwebtoken");
 
 const VERIFY_USER = (req, res, callback) => {
@@ -8,12 +6,10 @@ const VERIFY_USER = (req, res, callback) => {
   if (!token) {
     res.redirect("/login");
   }
-  const secret = fs.readFileSync(
-    path.join(__dirname, "../store/signature.key")
-  );
 
-  jwt.verify(token, secret, (err, payload) => {
-    if (!err) callback(payload);
+
+  jwt.verify(token, process.env.SECRET, (err, sessiondata) => {
+    if (!err) callback(sessiondata);
     else {
       res.redirect("/login");
     }

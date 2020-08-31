@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="/login">Login</a>
-            {{!-- <a class="nav-item nav-link" href="/signup">Sign Up</a> --}}
+            <a class="nav-item nav-link" href="/signup">Sign Up</a>
             <a class="nav-item nav-link active" href="/">Dashboard</a>
         </div>
     </div>
@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row">
         <div class="col"></div>
-        <div class="col-lg-8 col-sm-10">
+        <div class="col-lg-6 col-sm-10">
 
             <div class="card mt-4">
                 <div class="card-header">
@@ -31,7 +31,7 @@
                         <li class="list-group-item">There is a token present, saved as a cookie named <b>htaccess</b>
                         </li>
                         <li class="list-group-item">The requested token is meant to be for the {{audBy}} role.</li>
-                        <li class="list-group-item">It will expire at {{expire}} <br> ( set to be 5 minutes from the
+                        <li class="list-group-item">It will expire at {{expire}} <br> ( set to be 15 minutes from the
                             moment
                             you requested it )</li>
                         <li class="list-group-item">After it has expired, you will need to request a new one to access
@@ -42,10 +42,9 @@
                         It allows stateless communication with the server while making sure the data sent back and
                         forth are valid. If a user wanted to change the integrity of the data saved within the token,
                         the server would throw an exception when trying to verify the token's signature. You can try
-                        this out by opening the browser's developer tools and change a single part of the token. Upon
-                        refreshing of this page, you will not be authenticated anymore.
+                        this out by opening the browser's developer tools and change a single part of the token.
                     </p>
-                    <button id="home-delete-jwt-cookie" class="btn btn-outline-danger float-right mt-4">
+                    <button id="home-delete-jwt-cookie" class="btn btn-outline-danger mt-4">
                         <i class="fas fa-cookie-bite"></i>
                         Delete JWT cookie
                     </button>
