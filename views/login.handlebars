@@ -32,8 +32,8 @@
                     <h1 class="h3">Login</h1>
                 </div>
                 <div class="card-body">
-                    <input id="login-user" type="text" placeholder="Username" class="form-control px-4 mb-4">
-                    <input id="login-password" type="password" placeholder="Password" class="form-control px-4 mb-4">
+                    <input id="login-user" type="text" placeholder="Type in your email adress ..." class="form-control px-4 mb-4">
+                    <input id="login-password" type="password" placeholder="Type in your password ..." class="form-control px-4 mb-4">
                     <hr>
                     <button id="login-button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i>
                         Login</button>
@@ -51,13 +51,16 @@
         <div class="col"></div>
         <div class="col-lg-6 col-sm-10">
             <div class="alert alert-info" role="alert">
-                
-                <p>You can login with the user - pw combinations: </p>
-                <ul>
-                    <li>Jackal - eats-your-chicken</li>
-                    <li>Cooper - steals-your-candy</li>
-                    <li>Rocket - bites-your-finger</li>
-                </ul>
+
+                <h2 class="h4 mt-4">About Json Webtokens</h2>
+                <p class="text-justify">
+                    A Json webtoken (JWT) allows stateless communication with the server while making sure the data sent
+                    back and
+                    forth are valid. If a user wanted to change the integrity of the data saved within the token,
+                    the server would throw an exception when trying to verify the token's signature. You can try
+                    this out by opening the browser's developer tools and change a single part of the token. Then, once
+                    you refresh the page, you won't be able to access it anymore.
+                </p>
             </div>
         </div>
         <div class="col"></div>

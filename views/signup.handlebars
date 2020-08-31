@@ -32,24 +32,24 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="signup-user">Email</label>
-                        <input id="signup-email" type="text" placeholder="Email Adress" class="form-control px-4">
+                        <label for="signup-user">Email (Can be a fake one, too)</label>
+                        <input id="signup-email" type="text" placeholder="Type in an email adress" class="form-control px-4">
                     </div>
 
                     <div class="form-group">
                         <label for="signup-user">Name</label>
-                        <input id="signup-user" type="text" placeholder="Username" class="form-control px-4">
+                        <input id="signup-user" type="text" placeholder="Type in a username" class="form-control px-4">
                     </div>
 
                     <div class="form-group">
                         <label for="signup-passwort">Passwort</label>
-                        <input id="signup-password" type="password" placeholder="Password" class="form-control px-4">
+                        <input id="signup-password" type="password" placeholder="Choose a password" class="form-control px-4">
                     </div>
 
                     <div class="form-group">
                         <label for="signup-role">Role</label>
                         <select class="form-control" id="signup-role">
-                            <option disabled="true">Select your role ...</option>
+                            <option disabled="true">Select your role </option>
                             <option>User</option>
                             <option>Admin</option>
                             <option>Unicorn</option>
@@ -63,5 +63,16 @@
         </div>
         <div class="col"></div>
     </div>
-</div>
+    <div class="row fixed-bottom">
+        <div class="col"></div>
+        <div class="col-lg-6 col-sm-10">
+            <div class="alert alert-warning" role="alert">
+                <p class="text-justify">
+                    The data you provide here will be temporarily stored in a database. The password is hashed, but
+                    please do not type in any of your actual passwords or email adresses.
+                </p>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
 </div>
