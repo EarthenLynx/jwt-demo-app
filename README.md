@@ -4,7 +4,7 @@ Reference: https://jwt.io
 
 # Json Webtokens Demo Application
 
-Demo: https://jwt-auth-demo.herokuapp.com/
+Demo: https://jwt-sessions.herokuapp.com/login
 
 ## Clone the repos
 
