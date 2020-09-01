@@ -16,6 +16,46 @@
     </div>
 </nav>
 
+{{!-- Modal --}}
+<div class="modal fade" id="jwt-modal" tabindex="-1" aria-labelledby="jwt-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="jwt-modal-title"> <i class="fas fa-qrcode"></i> Decoded Json Webtoken</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="input-group">
+                    <label>Jwt Header</label>
+                    <textarea class="form-control" name="jwt-head" id="jwt-head"
+                        style="width: 100%; padding: 0.25rem 1rem;" rows="1"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Jwt Payload</label>
+                    <textarea class="form-control" name="jwt-payload" id="jwt-payload"
+                        style="width: 100%; padding: 0.25rem 1rem;" rows="8"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Jwt Signature</label>
+                    <textarea class="form-control" name="jwt-signature" id="jwt-signature"
+                        style="width: 100%; padding: 0.25rem 1rem;" rows="1"></textarea>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                {{!-- <button type="button" class="btn btn-primary" id="jwt-decode">Get JWT Content</button> --}}
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- /Modal --}}
+
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -40,6 +80,10 @@
                     <button id="home-delete-jwt-cookie" class="btn btn-outline-danger mt-4">
                         <i class="fas fa-cookie-bite"></i>
                         Delete JWT cookie
+                    </button>
+                    <button id="jwt-decode" type="button" class="btn btn-primary mt-4 float-right" data-toggle="modal"
+                        data-target="#jwt-modal">
+                        Show JWT's content
                     </button>
                 </div>
             </div>
