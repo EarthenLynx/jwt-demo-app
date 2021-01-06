@@ -4,7 +4,7 @@
   "description": "Just another http - request folder",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
     "crypto-random-string": "^3.2.0",
